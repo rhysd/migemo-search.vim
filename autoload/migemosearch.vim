@@ -10,6 +10,7 @@ function! s:has_vimproc()
             let s:exists_vimproc = 0
         endtry
     endif
+
     return s:exists_vimproc
 endfunction
 
@@ -20,22 +21,21 @@ endfunction
 function! s:find_dict(name)
     let path = $VIM . ',' . &runtimepath
     let dict = globpath(path, "dict/".a:name)
-    if dict == ''
+
+    if dict ==# ''
         let dict = globpath(path, a:name)
     endif
-    if dict == ''
-        let dict = '/usr/local/share/migemo/'.a:name
-        if !filereadable(dict)
-            let dict = ''
+
+    for dir in [ '/usr/share/migemo/',
+               \ '/usr/local/share/migemo/',
+               \ '/usr/share/cmigemo/' ]
+        if dict ==# '' && filereadable(dir.a:name)
+            let dict = dir.a:name
         endif
-    endif
-    if dict == ''
-        let dict = '/usr/share/cmigemo/'.a:name
-        if !filereadable(dict)
-            let dict = ''
-        endif
-    endif
+    endfor
+
     let dict = matchstr(dict, "^[^\<NL>]*")
+
     return dict
 endfunction
 
@@ -48,6 +48,7 @@ function! s:detect_dict()
             return dict
         endif
     endfor
+
     echoerr 'a dictionary for migemo is not found'
     echoerr 'your encoding is '.&encoding
 endfunction
@@ -65,6 +66,7 @@ else
     if g:migemosearch_migemodict ==# ''
         let g:migemosearch_migemodict = s:detect_dict()
     endif
+
     function! migemosearch#generate_regex(word)
         if ! executable(g:migemosearch_cmigemo)
             echoerr 'Error: cmigemo is not installed'
@@ -87,6 +89,7 @@ function! migemosearch#replace_search_word()
             return "\<C-u>".migemosearch#generate_regex(matchstr(cmdline, g:migemosearch_condition_to_extract_word))
         endif
     endif
+
     return ''
 endfunction
 
