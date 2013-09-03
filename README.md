@@ -11,6 +11,14 @@ migemo とは，ローマ字を入力として，そのローマ字を含む日�
 また，オプショナルですが，[vimproc.vim](https://github.com/Shougo/vimproc.vim) がインストールされていると `system()` の代わりに `vimproc#system()` を使います．
 
 
+###Usage
+
+自分で `<CR>` にマッピングする必要があります．
+
+```vim
+cnoremap <expr><CR> migemosearch#replace_search_word()."\<CR>"
+```
+
 ###License
 
 MIT ライセンスです．
