@@ -52,7 +52,7 @@ function! s:detect_dict()
     echoerr 'your encoding is '.&encoding
 endfunction
 
-if has('migemo')
+if has('migemo') && g:migemosearch_use_kaoriya_migemo
     if &migemodict == '' || !filereadable(&migemodict)
         let &migemodict = s:detect_dict()
     endif
