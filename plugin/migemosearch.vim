@@ -13,10 +13,10 @@ let g:migemosearch_use_kaoriya_migemo = get(g:, 'migemosearch_use_kaoriya_migemo
 " Refered to http://iwsttty.hatenablog.com/entry/20110321/1300729749
 let g:migemosearch_condition_to_use_migemo =
             \ get(g:, 'migemosearch_condition_to_use_migemo',
-            \ '^\%(\\\a\)\=\(\(\(\([bdghjkmnpstrz]\)\4\=\)\=y\=\([ei]\|[aou]h\=\)\)\|\%(ss\=\|dd\=\)\=h[aiuo]\|cc\=h[aio]\|tt\=su\|wa\|fu\|n\|-\)\+$')
+            \ '^\%(\\\a\)\=\(\(\(\([bdfghjkmnpstrz]\)\4\=\)\=y\=\([ei]\|[aou]h\=\)\)\|\%(ss\=\|dd\=\)\=h[aiuo]\|cc\=h[aio]\|tt\=su\|wa\|n\|-\)\+$')
 let g:migemosearch_condition_to_extract_word =
             \ get(g:, 'migemosearch_condition_to_extract_word',
-            \ '^\%(\\\a\)\=\zs\(\(\(\([bdghjkmnpstrz]\)\4\=\)\=y\=\([ei]\|[aou]h\=\)\)\|\%(ss\=\|dd\=\)\=h[aiuo]\|cc\=h[aio]\|tt\=su\|wa\|fu\|n\|-\)\+$')
+            \ '^\%(\\\a\)\=\zs\(\(\(\([bdfghjkmnpstrz]\)\4\=\)\=y\=\([ei]\|[aou]h\=\)\)\|\%(ss\=\|dd\=\)\=h[aiuo]\|cc\=h[aio]\|tt\=su\|wa\|n\|-\)\+$')
 
 let g:loaded_migemosearch = 1
 
