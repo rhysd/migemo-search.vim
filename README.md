@@ -14,11 +14,11 @@ migemo とは，ローマ字を入力として，そのローマ字を含む日�
 ### Usage
 
 自分で `<CR>` にマッピングする必要があります．
-`cmigemo` が無い環境では最初にプラグインを実行する際にエラーを吐くので，次のようにすることをおすすめします．
+`cmigemo` が無い環境では最初にプラグインを実行する際にエラーを吐くので，以下の内容を`.vimrc`に記載します．
 
 ```vim
 if executable('cmigemo')
-    cnoremap <expr><CR> migemosearch#replace_search_word()."\<CR>"
+    cnoremap <expr><CR> migemosearch#replace_search_word()."\<CR>\<CR>"
 endif
 ```
 
