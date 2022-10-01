@@ -28,7 +28,8 @@ function! s:find_dict(name)
 
     for dir in [ '/usr/share/migemo/',
                \ '/usr/local/share/migemo/',
-               \ '/usr/share/cmigemo/' ]
+               \ '/usr/share/cmigemo/'
+               \ '/opt/homebrew/share/']
         if dict ==# '' && filereadable(dir.a:name)
             let dict = dir.a:name
         endif
