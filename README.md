@@ -5,13 +5,13 @@ migemo とは，ローマ字を入力として，そのローマ字を含む日�
 `/` や `?` で検索する際にローマ字を入力すると自動的に検索ワードが migemo によって生成された正規表現に置き換えられ，ローマ字で日本語を検索することができるようになります．
 
 
-###Requirements
+### Requirements
 
 [cmigemo](http://www.kaoriya.net/software/cmigemo/) が必要です． Debian 系の OS では `apt-get install cmigemo`，Mac では `brew install cmigemo` でインストール可能です．
 また，オプショナルですが，[vimproc.vim](https://github.com/Shougo/vimproc.vim) がインストールされていると `system()` の代わりに `vimproc#system()` を使います．
 
 
-###Usage
+### Usage
 
 自分で `<CR>` にマッピングする必要があります．
 `cmigemo` が無い環境では最初にプラグインを実行する際にエラーを吐くので，次のようにすることをおすすめします．
@@ -22,7 +22,7 @@ if executable('cmigemo')
 endif
 ```
 
-###License
+### License
 
 MIT ライセンスです．
 
